@@ -1,2 +1,5 @@
 <!--pages/share/share.wxml-->
-<text>pages/share/share.wxml</text>
+<view class="main">
+  <custom-editor></custom-editor>
+  <!-- <textarea> saddddddddddddddddd</textarea> -->
+</view>

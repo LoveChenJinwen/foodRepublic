@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/republic/republic",
     "pages/share/share",
+    "pages/republic/republic",
     "pages/examine/examine",
     "pages/setting/setting"
   ],
@@ -35,6 +35,8 @@
     ]
   },
   "usingComponents": {
+    "van-icon": "/miniprogram_npm/vant-weapp/icon/index",
+    "van-button": "/miniprogram_npm/vant-weapp/button/index"
   },
   "sitemapLocation": "sitemap.json"
 }

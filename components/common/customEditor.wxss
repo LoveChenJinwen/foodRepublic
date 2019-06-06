@@ -1,0 +1,44 @@
+/* components/common/customEditor.wxss */
+.field-icon {
+  height: 60px;
+  display: flex;
+  align-items:center;
+  padding: 10px 10px;
+}
+.icon-image {
+  width: 80px;
+  height: 60px;
+  border: 1px dashed #1989fa;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+  background-color: #f5f5f5
+}
+.image-pic {
+  width: 80px;
+  height: 60px;
+}
+.field-title {
+  display: flex;
+  align-items:center;
+  padding: 10px 10px;
+}
+.title-input {
+  flex: 1
+}
+.editor {
+  text-align: center;
+  width: 100%;
+  margin: 20px 0;
+}
+.editor-btn {
+  margin: 0 10px;
+}
+.editor-icon {
+  padding-right: 2px; 
+}
+.editor-footer {
+  text-align: center;
+  width: 100%;
+  padding-top: 10px;
+}

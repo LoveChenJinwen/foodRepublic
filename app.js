@@ -17,22 +17,22 @@ App({
       success(res) {
         console.log(res)
         // 是否授权用户信息
-        if (!res.authSetting['scope.userInfo']) {
-          wx.authorize({
-            scope: 'scope.userInfo',
-            success() {
-              // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
-              wx.getUserInfo({
-                success(res) {
-                  this.globalData.userInfo = res.userInfo;
-                  if (this.userInfoReadyCallback) {
-                    this.userInfoReadyCallback(res)
-                  }
-                }
-              })
-            }
-          })
-        }
+        // if (!res.authSetting['scope.userInfo']) {
+        //   wx.authorize({
+        //     scope: 'scope.userInfo',
+        //     success() {
+        //       // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
+        //       wx.getUserInfo({
+        //         success(res) {
+        //           this.globalData.userInfo = res.userInfo;
+        //           if (this.userInfoReadyCallback) {
+        //             this.userInfoReadyCallback(res)
+        //           }
+        //         }
+        //       })
+        //     }
+        //   })
+        // }
         // 是否授权地理位置
         if (!res.authSetting['scope.userLocation']) {
           wx.authorize({

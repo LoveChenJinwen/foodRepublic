@@ -1,0 +1,47 @@
+<!--components/common/customEditor.wxml-->
+<view>
+  <view class='field-icon'>
+    <view>
+      美食图标：
+    </view>
+    <view class="icon-image" bindtap="loadImage">
+      <van-icon name="plus" wx:if="{{ !image }}"></van-icon>
+      <image src='{{ image }}' wx:if="{{ image }}" class="image-pic"></image>
+    </view>
+  </view>
+  <view class='field-title'>
+    <view>
+      美食标题：
+    </view>
+    <view class="title-input">
+      <van-field value="{{ title }}" type="textarea" autosize placeholder="请输入标题" border="true">
+      </van-field>
+    </view>
+  </view>
+  <view class='editor'>
+    <van-button plain type="info" size="small" round hairline class='editor-btn' bind:click="addText">
+      <van-icon name="records" class='editor-icon'></van-icon>添加文本
+    </van-button>
+    <van-button plain type="primary" size="small" round hairline class='editor-btn' bind:click="addImage">
+      <van-icon name="photo-o" class='editor-icon'></van-icon>添加图片
+    </van-button>
+  </view>
+  <block wx:for="{{nodeList}}" wx:for-item="node" wx:for-index="index" wx:key="{{index}}">
+    <block wx:if="{{node.name === 'text'}}">
+      <van-field value="{{ node.message }}" type="textarea" placeholder="请输入文本" autosize data-index="{{index}}" bindinput="onTextareaInput" border="{{ true }}" use-button-slot>
+        <van-icon slot="button" name="close" bind:click="delText" data-index="{{ index }}">删除</van-icon>
+      </van-field>
+    </block>
+    <block wx:if="{{node.name === 'img'}}">
+      <van-swipe-cell right-width="{{ 65 }}" left-width="{{ 65 }}">
+        <image src='{{ node.message }}' class='image'></image>
+        <van-icon slot="right" name="close" bind:click="delImage" data-index="{{ index }}">删除</van-icon>
+      </van-swipe-cell>
+    </block>
+  </block>
+  <view class="editor-footer">
+    <van-button type="primary" size="small" bind:click="submit" loading="{{ loading }}" loading-text="提交中...">
+      完成
+    </van-button>
+  </view>
+</view>

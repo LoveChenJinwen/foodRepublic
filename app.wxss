@@ -1,12 +1,8 @@
 /**app.wxss**/
 @import "./miniprogram_npm/vant-weapp/common/index.wxss";
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
+.main {
+  padding-bottom: 55px;
+  width: 100%;
 } 
 page {
   font-size: 28rpx;
