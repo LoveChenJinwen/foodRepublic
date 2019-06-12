@@ -1,2 +1,31 @@
-<!--pages/setting/setting.wxml-->
-<text>pages/setting/setting.wxml</text>
+<!--pages/setting/settting.wxml-->
+<view>
+  <view wx:if="{{ !userInfo && canIUse}}" class='userinfo-btn'>
+    <van-button open-type="getUserInfo" bind:getuserinfo="getUserInfo" plain hairline type="primary" size='small'>
+      获取头像昵称
+    </van-button>
+  </view>
+  <view class='userinfo' wx:else>
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view class="my">
+    <view>
+      <view>1030</view>
+      <text>我的分享</text>
+    </view>
+    <view>
+      <view>1030</view>
+      <text>我的审核</text>
+    </view>
+    <view>
+      <view>1030</view>
+      <text>我的收藏</text>
+    </view>
+  </view>
+  <view class='userinfo-btn'>
+    <van-button bind:click="previewImg" plain hairline type="primary" size='small'>
+      赞助
+    </van-button>
+  </view>
+</view>

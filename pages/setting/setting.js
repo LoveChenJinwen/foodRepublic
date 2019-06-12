@@ -1,66 +1,69 @@
 // pages/setting/setting.js
-Page({
+let app = getApp();
+Component({
+  /**
+   * 组件的属性列表
+   */
+  properties: {
+
+  },
 
   /**
-   * 页面的初始数据
+   * 组件的初始数据
    */
   data: {
-
+    userInfo: null,
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  lifetimes: {
+    attached: function () {
+      this.setData({
+        userInfo: app.globalData.userInfo
+      })
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo
+        })
+      }
+    }
   },
-
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 组件的方法列表
    */
-  onReady: function () {
-
+  methods: {
+    onPullDownRefresh: function() {
+      wx.stopPullDownRefresh();
+    },
+    getUserInfo: function(e) {
+      app.globalData.userInfo = e.detail.userInfo;
+      this.setData({
+        userInfo: app.globalData.userInfo
+      })
+    },
+    previewImg: function(e) {
+      let imgUrl = 'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640';
+      wx.previewImage({
+        current: imgUrl,     //当前图片地址
+        urls: [imgUrl],               //所有要预览的图片的地址集合 数组形式
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    },
+    getRootPath: function() {
+      let pathName = window.location.pathname.substring(1);
+      let webName = pathName == '' ? '' : pathName.substring(0, pathName.indexOf('/'));
+      return window.location.protocol + '//' + window.location.host + '/' + webName + '/';
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  pageLifetimes: {
+    show() {
+      if (typeof this.getTabBar === 'function' &&
+        this.getTabBar()) {
+        this.getTabBar().setData({
+          selected: 4
+        })
+      }
+    }
   }
 })

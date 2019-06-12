@@ -1,11 +1,14 @@
 <!--pages/republic/republic.wxml-->
 <view class='main'>
   <view class='public-top'>
-    <view><van-icon name="location-o" class="location"></van-icon>未登录</view>
+    <view class='public-user'>
+      <van-icon name="user-o" class="location"></van-icon>
+      <text>{{ userInfo ? userInfo.nickName : "获取昵称" }}</text>
+    </view>
     <view class='search'>
       <van-search
         value="{{ search }}"
-        placeholder="请输入搜索关键词"
+        placeholder="{{searchPlace}}"
         bind:search="onSearch"
         bind:cancel="onCancel"
         custom-class="search-input"
@@ -16,7 +19,7 @@
   <view class='loading-top' wx:if="{{top}}">
     <van-loading type="spinner" />
   </view>
-  <view class="swiper-part">
+  <!-- <view class="swiper-part">
     <swiper indicator-dots="{{indicatorDots}}"
       autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
       <block wx:for="{{imgUrls}}" wx:key="index">
@@ -26,26 +29,54 @@
         </swiper-item>
       </block>
     </swiper>
-  </view>
-  <van-tabs swipeable>
-    <van-tab title="离我最近"></van-tab>
-    <van-tab title="最近更新"></van-tab>
-  </van-tabs>
+  </view> -->
+  <block>
+    <van-tabs swipeable class="tabs">
+      <van-tab title="最近更新"></van-tab>
+      <van-tab title="点赞最多"></van-tab>
+      <van-tab title="评论最多"></van-tab>
+      <van-tab title="收藏最多"></van-tab>
+    </van-tabs>
+  </block>
   <scroll-view>
-    <view wx:for="{{list}}" wx:key="index" class='item-block'>
-      <image src="{{item.image}}" class='item-image'></image>
-      <view class="item-title van-multi-ellipsis--l3">
-        {{ item.detail }}
+    <block wx:for="{{list}}" wx:key="index">
+      <view class='item-block'>
+        <image src="{{item.image}}" class='item-image'></image>
+        <view class="item-title van-multi-ellipsis--l3">
+          {{ item.detail }}
+        </view>
+        <view class="item-addr">
+          <label >
+            {{ item.addr }}
+          </label>
+          <label>
+            {{ item.time }}
+          </label>
+        </view>
       </view>
-      <view class="item-addr">
-        <label >
-          {{ item.addr }}
-        </label>
-        <label>
-          {{ item.time }}
-        </label>
+      <view class='item-bottom'>
+        <text class="item-bottom-user">{{ item.userName }}</text>
+        <view>
+          <text class='item-bottom-text'>{{ item.thumb }}</text>
+          <van-icon 
+            bind:click="thumbClick" 
+            data-index = "{{ index }}"
+            name="{{ item.isThumb == 1 ? 'like' : 'like-o'}}" 
+            class="item-bottom-icon {{ item.isThumb == 1 ? 'icon-red': '' }}">
+          </van-icon>
+
+          <text class="item-bottom-text">{{ item.like }}</text>
+          <van-icon
+            bind:click="likeClick"
+            data-index = "{{ index }}"
+            name="{{ item.isLike == 1 ? 'star': 'star-o' }}"
+            class="item-bottom-icon {{ item.isLike == 1 ? 'icon-red': '' }}">
+          </van-icon>
+          <text class='item-bottom-text'>{{ item.comment }}</text>
+          <van-icon name="comment-o" class='item-bottom-icon'></van-icon>
+        </view>
       </view>
-    </view>
+    </block>
   </scroll-view>
   <view class='loading-bottom' wx:if="{{bottom}}">
     <van-loading type="spinner" />

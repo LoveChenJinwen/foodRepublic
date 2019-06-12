@@ -1,1 +1,35 @@
-/* pages/setting/setting.wxss */
+/* pages/setting/settting.wxss */
+.userinfo-btn {
+  display: flex;
+  padding: 10px 10px;
+  border-bottom: 10px solid #e5e5e5;
+  justify-content: center
+}
+.userinfo {
+  display: flex;
+  align-items: center;
+  padding: 10px 10px;
+  border-bottom: 10px solid #e5e5e5;
+}
+.userinfo-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+  border: 1px solid #e5e5e5;
+}
+.userinfo-nickname {
+  color: #3c3c3c;
+  padding-left: 10px;
+}
+.my {
+  display: flex;
+  justify-content:space-between;
+  padding: 20px 10px;
+  border-bottom: 10px solid #e5e5e5;
+  text-align: center;
+  align-items: center;
+}
+.userinfo-pay {
+  width: 150px;
+  height: 150px;
+}

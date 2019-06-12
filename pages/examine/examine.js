@@ -18,14 +18,16 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    onPullDownRefresh: function () {
+      wx.stopPullDownRefresh();
+    }
   },
   pageLifetimes: {
     show() {
       if (typeof this.getTabBar === 'function' &&
         this.getTabBar()) {
         this.getTabBar().setData({
-          selected: 2
+          selected: 3
         })
       }
     }

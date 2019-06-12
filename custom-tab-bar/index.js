@@ -14,13 +14,17 @@ Component({
       pagePath: "../republic/republic",
       iconPath: "bullhorn-o",
       text: "广场"
+    }, { 
+      pagePath: "../my/my",
+      iconPath: "user-o",
+      text: "我的"
     }, {
       pagePath: "../share/share",
-      iconPath: "add-o",
+      iconPath: "plus",
       text: "分享"
     }, {
       pagePath: "../examine/examine",
-      iconPath: "manager-o",
+        iconPath: "filter-o",
       text: "审核"
     }, {
       pagePath: "../setting/setting",

@@ -10,6 +10,13 @@
   color: #fff;
   z-index: 9999;
 }
+.public-user {
+  overflow: hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  max-width: 100px;
+  
+}
 .loading-top {
   text-align: center;
   position: fixed;
@@ -41,10 +48,14 @@
 .slide-image {
   width: 100%;
 }
+.tabs {
+  padding-top: 80rpx;
+  display: block
+}
 .item-block {
   display: flex;
-  padding: 10px 0;
-  border-bottom: 1px solid #e5e5e5;
+  padding: 5px;
+  border-bottom: 1px dashed #e5e5e5;
   text-align: center;
   align-items: center;
 }
@@ -71,4 +82,28 @@
  text-overflow:ellipsis;
  width: 100px;
  display: block;
+}
+
+.item-bottom {
+  display: flex;
+  justify-content:space-between;
+  padding: 10px 5px;
+  border-bottom: 1px solid #e5e5e5;
+  text-align: center;
+  align-items: center;
+}
+.item-bottom-user {
+  font-size: 12px;
+  color: #333;
+}
+.item-bottom-text {
+  padding: 0 2px 0 10px;
+  color: #3c3c3c;
+  font-size: 12px;
+}
+.item-bottom-icon {
+  font-size: 18px;
+}
+.icon-red {
+  color: #ff0000
 }

@@ -1,0 +1,8 @@
+<!--pages/my/my.wxml-->
+<view class='content'>
+  <van-tabs type="card">
+    <van-tab title="我分享">内容 1</van-tab>
+    <van-tab title="我收藏">内容 2</van-tab>
+    <van-tab title="我审核">内容 3</van-tab>
+  </van-tabs>
+</view>

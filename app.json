@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/share/share",
     "pages/republic/republic",
+    "pages/share/share",
+    "pages/my/my",
     "pages/examine/examine",
     "pages/setting/setting"
   ],
@@ -24,6 +25,9 @@
         "pagePath": "pages/republic/republic"
       },
       {
+        "pagePath": "pages/my/my"
+      },
+      {
         "pagePath": "pages/share/share"
       },
       {
@@ -36,7 +40,8 @@
   },
   "usingComponents": {
     "van-icon": "/miniprogram_npm/vant-weapp/icon/index",
-    "van-button": "/miniprogram_npm/vant-weapp/button/index"
+    "van-button": "/miniprogram_npm/vant-weapp/button/index",
+    "van-loading": "../../miniprogram_npm/vant-weapp/loading/index"
   },
   "sitemapLocation": "sitemap.json"
 }

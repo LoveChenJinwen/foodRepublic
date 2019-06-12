@@ -1,0 +1,4 @@
+/* pages/my/my.wxss */
+.content{
+  margin: 10px 0;
+}
